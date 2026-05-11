@@ -1,0 +1,27 @@
+{
+  "entities": {
+    "Paper": {
+      "title": "Paper",
+      "description": "A research paper document",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "status": { "type": "string", "enum": ["PENDING", "PROCESSING", "COMPLETED", "FAILED"] },
+        "rawContent": { "type": "string" },
+        "summary": { "type": "string" },
+        "concepts": { "type": "array", "items": { "type": "string" } },
+        "mathExplainer": { "type": "string" },
+        "mindMapData": { "type": "object" },
+        "learningCards": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["id", "title", "status"]
+    }
+  },
+  "firestore": {
+    "/papers/{paperId}": {
+      "schema": "Paper",
+      "description": "Collection of research papers"
+    }
+  }
+}
