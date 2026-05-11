@@ -17,5 +17,4 @@
 
 [functions]
   directory = "netlify/functions"
-  node_bundle = true
   external_node_modules = ["pdf-parse"]
