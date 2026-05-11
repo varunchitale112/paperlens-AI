@@ -12,7 +12,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || '' });
 app.use(express.json());
 
 // API route
-app.post('/api/process-paper', upload.single('file'), async (req, res) => {
+app.post('/api/process-paper', upload.single('file'), async (req: any, res) => {
   try {
     const { url, text: inputText } = req.body;
     let text = '';
@@ -32,7 +32,7 @@ app.post('/api/process-paper', upload.single('file'), async (req, res) => {
     }
 
     // Process with LLM
-    const model = ai.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = (ai as any).getGenerativeModel({ model: 'gemini-1.5-flash' });
     const prompt = `Analyze this research paper content and return JSON:
     {
       "summary": "...",
